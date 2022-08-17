@@ -1,5 +1,15 @@
 import { client } from "../../libs/client";
 import styles from "../../styles/Home.module.scss";
+import { useRouter } from 'next/router'
+
+export const BackButton = () => {
+    const router = useRouter()
+    return (
+        <button alia-label="戻る" type="button" onClick={() => router.back()}>
+            戻る
+        </button>
+    )
+}
 
 // SSG
 export const getStaticProps = async (context) => {
@@ -29,6 +39,6 @@ export default function BlogId({ blog }) {
         <p className={styles.publishedAt}>{blog.publishedAt}</p>
         <div dangerouslySetInnerHTML={{ __html: `${blog.body}` }} className={styles.post}></div>
 
-        <button type="button" onclick="history.back()">前のページへ戻る</button>
+        <BackButton />
     </main>
 };
