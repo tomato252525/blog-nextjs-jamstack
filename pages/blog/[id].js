@@ -28,5 +28,7 @@ export default function BlogId({ blog }) {
         <h1 className={styles.title}>{blog.title}</h1>
         <p className={styles.publishedAt}>{blog.publishedAt}</p>
         <div dangerouslySetInnerHTML={{ __html: `${blog.body}` }} className={styles.post}></div>
+
+        <button type="button" onclick="history.back()">前のページへ戻る</button>
     </main>
 };
